@@ -1,0 +1,10 @@
+<header class="masthead">
+<a class="name" href="/">{{ site.title }}</a>
+<p class="tagline">{{ site.tagline }}</p>
+<nav class="mono" aria-label="Site">
+<a href="/"{% if page.url == "/" %} class="here"{% endif %}>log</a>
+<a href="/about/"{% if page.url == "/about/" %} class="here"{% endif %}>about</a>
+<a href="/feed.xml">rss</a>
+<a href="mailto:{{ site.email }}">by email</a>
+</nav>
+</header>

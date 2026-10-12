@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+{% include "masthead.njk" %}
+
+<section class="log" aria-label="Entries">
+{% for e in collections.entries | first(15) %}
+<a class="row" href="{{ e.url }}">
+<span class="mono quiet">{{ e.date | dots }}</span>
+<span class="what"><span class="t">{{ e.data.title }}</span><span class="mono quiet">{{ e.data.kind }}</span></span>
+</a>
+{% endfor %}
+{% if collections.entries.length > 15 %}
+<div class="more mono"><a class="quiet" href="/log/">the whole log →</a></div>
+{% endif %}
+</section>
+
+{% include "footer.njk" %}

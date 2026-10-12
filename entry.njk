@@ -1,0 +1,27 @@
+---
+layout: base.njk
+---
+<nav class="topbar" aria-label="Site">
+<a class="small-name" href="/">{{ site.title }}</a>
+<a class="mono quiet" href="/">← the log</a>
+</nav>
+
+<article>
+<header>
+<span class="mono quiet">{{ page.date | dots }} · {{ kind }}</span>
+<h1>{{ title }}</h1>
+</header>
+<div class="prose">
+{{ content | safe }}
+</div>
+</article>
+
+{% set older = collections.entries | getNextCollectionItem(page) %}
+{% set newer = collections.entries | getPreviousCollectionItem(page) %}
+<footer class="mono quiet entry-foot">
+<div class="pager">
+<span>{% if older %}<a href="{{ older.url }}">← {{ older.data.title }}</a>{% endif %}</span>
+<span>{% if newer %}<a href="{{ newer.url }}">{{ newer.data.title }} →</a>{% endif %}</span>
+</div>
+<span>Reply by email: <a href="mailto:{{ site.email }}?subject=Re: {{ title | urlencode }}">{{ site.email }}</a></span>
+</footer>

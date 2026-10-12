@@ -1,0 +1,17 @@
+---
+layout: base.njk
+title: The whole log
+permalink: /log/
+---
+{% include "masthead.njk" %}
+
+<section class="log" aria-label="All entries">
+{% for e in collections.entries %}
+<a class="row" href="{{ e.url }}">
+<span class="mono quiet">{{ e.date | dots }}</span>
+<span class="what"><span class="t">{{ e.data.title }}</span><span class="mono quiet">{{ e.data.kind }}</span></span>
+</a>
+{% endfor %}
+</section>
+
+{% include "footer.njk" %}
